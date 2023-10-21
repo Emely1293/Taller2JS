@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EjemploJS#1</title>
+    <style>
+          table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 10px; 
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+        
+        var table = document.createElement('table');
+
+        
+        for (var i = 0; i < 3; i++) {
+            var row = document.createElement('tr');
+            for (var j = 0; j < 4; j++) {
+                var cell = document.createElement('td');
+                var label = String.fromCharCode(65 + i) + (j + 1);
+
+                if (label === 'A1') {
+                   
+                    var image = document.createElement('img');
+                    image.src = 'https://i.pinimg.com/736x/42/60/6d/42606d03d547927b61bc8285394bea10.jpg';
+                    image.style.width = '100px'; 
+                    image.style.height = '150px'; 
+                    cell.appendChild(image);
+                } else if (label === 'C1') {
+                   
+                    var image = document.createElement('img');
+                    image.src = 'https://www.tuexperto.com/wp-content/uploads/2022/04/fondos-de-pantalla-de-tumblr-2.jpg.webp';
+                    image.style.width = '100px'; 
+                    image.style.height = '150px'; 
+                    cell.appendChild(image);
+                } else if (label === 'A4') {
+                    
+                    var link = document.createElement('a');
+                    link.href = 'https://www.example.com'; 
+                    link.textContent = 'ONLY TEXT';
+                    cell.appendChild(link);
+                } else if (label === 'C3') {
+                    
+                    var image = document.createElement('img');
+                    image.src = 'https://img.freepik.com/foto-gratis/carretera-vacia-paisaje-desertico_414077-90.jpg';
+                    image.style.width = '100px'; 
+                    image.style.height = '150px'; 
+                    cell.appendChild(image);
+                } else if (label === 'A2') {
+                    
+                    var image = document.createElement('img');
+                    image.src = 'https://i.pinimg.com/474x/23/e2/4c/23e24cbeb820aa1087bd53f8a0c76073.jpg';
+                    image.style.width = '900px'; // Ancho
+                    image.style.height = '120px'; // Alto
+                    cell.appendChild(image);
+                } else if (label === 'B1') {
+                    cell.colSpan = 2; 
+                    cell.style.fontSize = '35px';
+                    var boldText = document.createElement('b');
+                    boldText.textContent = "SAMPLE WEB PAGE TABLE LAYOUT";
+                    cell.appendChild(boldText);
+                } else if (label === 'C2') {
+                    
+                    cell.colSpan = 2;
+                    cell.textContent = "This is just a corny way of showing you how a table can organize the layout of a web page. Designing a prototype by sketching on a piece of paper is a Good place to start. You need to, however, have the skills to transfer that concept to HTML. Tables help you organize it";
+                } else if (label === 'A3') {
+                    //Contiene la fecha de entrega
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, '0');
+                    var mm = String(today.getMonth() + 1).padStart(2, '0');
+                    var yyyy = today.getFullYear();
+                    today = mm + '/' + dd + '/' + yyyy;
+
+                  
+                    var boldText = document.createElement('b');
+                    boldText.textContent = today;
+                    cell.appendChild(boldText);
+                } else {
+                    cell.textContent = label;
+                }
+
+                if (i === 0 && j === 0) {
+                    cell.rowSpan = 2; 
+                }
+
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+
+        //Me faltaron los enlaces :/
+
+        
+        document.body.appendChild(table);
+    </script>
+</body>
+</html>
